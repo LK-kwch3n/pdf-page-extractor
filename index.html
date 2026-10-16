@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Extract selected pages from a PDF in your browser. Files never leave your device."
+    />
+    <title>PDF Page Extractor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Private · Fast · No upload</p>
+        <h1>PDF Page Extractor</h1>
+        <p class="intro">
+          Pick a PDF, enter the pages you want, and download a new PDF. Everything
+          happens locally in your browser.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="extract-heading">
+        <h2 id="extract-heading" class="sr-only">Extract PDF pages</h2>
+
+        <div id="drop-zone" class="drop-zone">
+          <input id="pdf-file" type="file" accept="application/pdf,.pdf" />
+          <label for="pdf-file">
+            <span class="drop-icon" aria-hidden="true">PDF</span>
+            <strong>Choose a PDF</strong>
+            <span>or drag and drop it here</span>
+          </label>
+        </div>
+
+        <div id="file-summary" class="file-summary" hidden>
+          <div>
+            <strong id="file-name"></strong>
+            <span id="file-details"></span>
+          </div>
+          <button id="remove-file" class="text-button" type="button">Remove</button>
+        </div>
+
+        <form id="extract-form" novalidate>
+          <label for="page-ranges">Pages to extract</label>
+          <input
+            id="page-ranges"
+            name="page-ranges"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="For example: 1, 2:5, 45"
+            aria-describedby="range-help"
+            disabled
+          />
+          <p id="range-help" class="help">
+            Use commas between pages. Use a colon for an inclusive range, such as
+            <code>2:5</code>.
+          </p>
+
+          <button id="extract-button" class="primary-button" type="submit" disabled>
+            Extract pages
+          </button>
+        </form>
+
+        <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+      </section>
+
+      <section class="notes" aria-label="Important notes">
+        <h2>Your PDF stays private</h2>
+        <p>
+          The file is processed on this device and is never sent to a server. Large
+          PDFs may take a while and require substantial browser memory.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Runs entirely in your browser with pdf-lib.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

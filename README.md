@@ -2,6 +2,10 @@
 
 A small, static web app that extracts selected pages from a PDF entirely in the browser. No PDF is uploaded to a server.
 
+# Published Web App
+https://kuanw3nch3n.github.io/pdf-page-extractor/
+
+
 ## MVP features
 
 - Choose or drag and drop a PDF.
